@@ -6,7 +6,7 @@ app = Flask(__name__, static_folder='front-end', static_url_path='/front-end')
 # Route to serve login page at root URL
 @app.route('/')
 def index():
-    return send_from_directory('front-end/pages', 'login.html')
+    return send_from_directory('front-end/pages', 'home.html')
 
 # Route to serve other static files (CSS, JS, Images)
 @app.route('/<path:path>')
