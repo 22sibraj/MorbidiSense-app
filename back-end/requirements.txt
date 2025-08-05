@@ -1,0 +1,6 @@
+Flask==2.2.2
+gunicorn==20.1.0
+# Include any ML libraries you're using like:
+scikit-learn
+numpy
+pandas
