@@ -3,7 +3,7 @@ name: Build and Deploy MorbidiSense to Azure Web App
 on:
   push:
     branches:
-      - main
+      - main  # Triggers deployment when you push to main branch
   workflow_dispatch:
 
 jobs:
@@ -26,6 +26,6 @@ jobs:
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v2
       with:
-        app-name: morbidiSense-app  # <-- Your Azure App Service Name
+        app-name: morbidiSense-app  # <-- Make sure this matches your Azure App Name
         publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
         package: .
