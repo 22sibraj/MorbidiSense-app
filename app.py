@@ -8,27 +8,30 @@ app = Flask(__name__, static_folder='front-end', static_url_path='/front-end')
 @app.route('/')
 def index():
     return send_from_directory('front-end/pages', 'home.html')
+
 @app.route('/explanation')
 def explanation():
     return send_from_directory('front-end/pages', 'explanation.html')
+
 @app.route('/results')
 def results():
     return send_from_directory('front-end/pages', 'results.html')
+
 @app.route('/report')
 def report():
     return send_from_directory('front-end/pages', 'report.html')
+
 @app.route('/health-insights')
 def health_insights():
     return send_from_directory('front-end/pages', 'health-insights.html')
-@app.route('/user-profile') 
+
+@app.route('/user-profile')
 def user_profile():
     return send_from_directory('front-end/pages', 'user-profile.html')
+
 @app.route('/settings')
 def settings():
-    return send_from_directory('front-end/pages', 'settings.html')
-@app.route('/logout')
-def logout():
-    return send_from_directory('front-end/pages', 'logout.html')
+    return send_from_directory('front-end/pages', 'logout.html')  # Assuming logout.html for settings page.
 
 # Route to serve other static files (CSS, JS, Images)
 @app.route('/<path:path>')
@@ -42,6 +45,11 @@ def predict():
     # Here you can add your ML model prediction logic
     # For now, we're sending a dummy risk score
     return jsonify({'risk_score': 85})
+
+# Catch-All Route to handle SPA routing (404 Fix)
+@app.errorhandler(404)
+def not_found(e):
+    return send_from_directory('front-end/pages', 'home.html')
 
 # Run the Flask development server only if running locally
 if __name__ == '__main__':
