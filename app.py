@@ -8,6 +8,24 @@ app = Flask(__name__, static_folder='front-end', static_url_path='/front-end')
 @app.route('/')
 def index():
     return send_from_directory('front-end/pages', 'home.html')
+@app.route('/explanation')
+def explanation():
+    return send_from_directory('front-end/pages', 'explanation.html')
+@app.route('/results')
+def results():
+    return send_from_directory('front-end/pages', 'results.html')
+@app.route('/report')
+def report():
+    return send_from_directory('front-end/pages', 'report.html')
+@app.route('/health-insights')
+def health_insights():
+    return send_from_directory('front-end/pages', 'health-insights.html')
+@app.route('/user-profile')
+def user_profile():
+    return send_from_directory('front-end/pages', 'user-profile.html')
+@app.route('/settings')
+# def settings():
+    # return send_from_directory('front-end/pages', 'logout.html')
 
 # Route to serve other static files (CSS, JS, Images)
 @app.route('/<path:path>')
