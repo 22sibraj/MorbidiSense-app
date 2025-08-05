@@ -1,22 +1,22 @@
 from flask import Flask, send_from_directory, request, jsonify
 import os
 
-app = Flask(__name__, static_folder='../front-end', static_url_path='')
+app = Flask(__name__, static_folder='front-end', static_url_path='/front-end')
 
+# Route to serve login page at root URL
 @app.route('/')
 def index():
-    return send_from_directory('pages', 'login.html')
+    return send_from_directory('front-end/pages', 'login.html')
 
+# Route to serve other static files (CSS, JS, Images)
 @app.route('/<path:path>')
 def static_files(path):
-    return send_from_directory('../front-end', path)
+    return send_from_directory('front-end', path)
 
-# Example API route
+# Example API Route (For Predict)
 @app.route('/predict', methods=['POST'])
 def predict():
     data = request.json
-    # Load ML model & predict
     return jsonify({'risk_score': 85})
 
-if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000)
+# DO NOT write app.run() here. Azure will use 'gunicorn app:app'
