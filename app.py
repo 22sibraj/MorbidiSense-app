@@ -20,12 +20,15 @@ def report():
 @app.route('/health-insights')
 def health_insights():
     return send_from_directory('front-end/pages', 'health-insights.html')
-@app.route('/user-profile')
+@app.route('/user-profile') 
 def user_profile():
     return send_from_directory('front-end/pages', 'user-profile.html')
 @app.route('/settings')
-# def settings():
-    # return send_from_directory('front-end/pages', 'logout.html')
+def settings():
+    return send_from_directory('front-end/pages', 'settings.html')
+@app.route('/logout')
+def logout():
+    return send_from_directory('front-end/pages', 'logout.html')
 
 # Route to serve other static files (CSS, JS, Images)
 @app.route('/<path:path>')
