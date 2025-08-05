@@ -1,9 +1,10 @@
 from flask import Flask, send_from_directory, request, jsonify
 import os
 
+# Initialize Flask app
 app = Flask(__name__, static_folder='front-end', static_url_path='/front-end')
 
-# Route to serve login page at root URL
+# Route to serve the home page
 @app.route('/')
 def index():
     return send_from_directory('front-end/pages', 'home.html')
@@ -13,10 +14,14 @@ def index():
 def static_files(path):
     return send_from_directory('front-end', path)
 
-# Example API Route (For Predict)
+# Example API Route (For ML Predictions)
 @app.route('/predict', methods=['POST'])
 def predict():
-    data = request.json
+    data = request.json  # Get JSON data from POST request
+    # Here you can add your ML model prediction logic
+    # For now, we're sending a dummy risk score
     return jsonify({'risk_score': 85})
 
-# DO NOT write app.run() here. Azure will use 'gunicorn app:app'
+# Run the Flask development server only if running locally
+if __name__ == '__main__':
+    app.run(debug=True)
