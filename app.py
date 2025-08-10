@@ -13,6 +13,10 @@ def index():
 def explanation():
     return send_from_directory('front-end/pages', 'explanation.html')
 
+@app.route('/predict-risk')
+def predict_risk():
+    return send_from_directory('front-end/pages', 'predict-risk.html')
+
 @app.route('/results')
 def results():
     return send_from_directory('front-end/pages', 'results.html')
