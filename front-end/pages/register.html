@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../image/favicon.ico">
+    <link rel="stylesheet" href="../style/register.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Register - MorbidiSense</title>
+</head>
+<body>
+    <div class="register-container">
+        <div class="register-box">
+            <form id="registerForm" class="register-form" onsubmit="event.preventDefault(); register();">
+                <div id="message" class="message"></div>
+                <div class="logo">
+                    <img src="../image/logo-img.jpg" alt="MorbidiSense Logo">
+                    <h1>Join MorbidiSense Today</h1>
+                    <p>Sign up to unlock AI-powered health insights, monitor your well-being, and take control of your medical journey — all in one smart platform.</p>
+                </div>
+                <div class="form-group">
+                    <label for="fullName">Full Name <span class="required">*</span></label>
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="fullName" name="fullName" placeholder="John Doe" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="username">Username <span class="required">*</span></label>
+                    <div class="input-group">
+                        <i class="fas fa-at"></i>
+                        <input type="text" id="username" name="username" placeholder="john_doe" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email <span class="required">*</span></label>
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label for="password">Password <span class="required">*</span></label>
+                        <div class="input-group">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="password" name="password" placeholder="********" required>
+                            <i class="fas fa-eye toggle-password"></i>
+                        </div>
+                    </div>
+                    <div class="form-group half">
+                        <label for="confirmPassword">Confirm Password <span class="required">*</span></label>
+                        <div class="input-group">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="********" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label for="phone">Phone Number</label>
+                        <div class="input-group">
+                            <i class="fas fa-phone"></i>
+                            <input type="tel" id="phone" name="phone" placeholder="+91 9876543210">
+                        </div>
+                    </div>
+                    <div class="form-group half">
+                        <label for="dob">Date of Birth</label>
+                        <div class="input-group">
+                            <i class="fas fa-calendar"></i>
+                            <input type="date" id="dob" name="dob">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Gender</label>
+                    <div class="radio-group">
+                        <label class="radio-container">
+                            <input type="radio" name="gender" value="male">
+                            <span class="radio-checkmark"></span>
+                            Male
+                        </label>
+                        <label class="radio-container">
+                            <input type="radio" name="gender" value="female">
+                            <span class="radio-checkmark"></span>
+                            Female
+                        </label>
+                        <label class="radio-container">
+                            <input type="radio" name="gender" value="other">
+                            <span class="radio-checkmark"></span>
+                            Other
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-register">
+                        <span>Create Account</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    
+                    <div class="login-link">
+                        Already have an account? <a href="login.html">Login here</a>
+                    </div>
+                </div>
+            </form>
+    </div>
+</div>
+
+<!-- Loader -->
+<div id="loader" class="loader">
+    <img src="../image/loader.gif" alt="Loading...">
+</div>
+
+<script>
+    // Toggle password visibility
+    document.querySelectorAll('.toggle-password').forEach(icon => {
+        icon.addEventListener('click', function() {
+            const input = this.previousElementSibling;
+            const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
+            input.setAttribute('type', type);
+            this.classList.toggle('fa-eye');
+            this.classList.toggle('fa-eye-slash');
+        });
+    });
+
+    // Handle form submission
+    async function register() {
+        const form = document.getElementById('registerForm');
+        const formData = new FormData(form);
+        const loader = document.getElementById('loader');
+        const messageDiv = document.getElementById('message');
+        
+        // Basic client-side validation
+        const password = formData.get('password');
+        const confirmPassword = formData.get('confirmPassword');
+        
+        if (password !== confirmPassword) {
+            showMessage('Passwords do not match', 'error');
+            return;
+        }
+        
+        try {
+            // Show loader
+            loader.style.display = 'flex';
+            
+            // Convert FormData to JSON
+            const jsonData = {};
+            formData.forEach((value, key) => {
+                jsonData[key] = value;
+            });
+            
+            // Send registration request
+            const response = await fetch('/api/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(jsonData)
+            });
+            
+            const data = await response.json();
+            
+            if (response.ok) {
+                showMessage('Registration successful! Redirecting to login...', 'success');
+                // Redirect to login after 2 seconds
+                setTimeout(() => {
+                    window.location.href = 'login.html';
+                }, 2000);
+            } else {
+                showMessage(data.message || 'Registration failed. Please try again.', 'error');
+            }
+        } catch (error) {
+            console.error('Registration error:', error);
+            showMessage('An error occurred. Please try again later.', 'error');
+        } finally {
+            // Hide loader
+            loader.style.display = 'none';
+        }
+    }
+    
+    // Show message function
+    function showMessage(message, type) {
+        const messageDiv = document.getElementById('message');
+        messageDiv.textContent = message;
+        messageDiv.className = 'message';
+        messageDiv.classList.add(type);
+        
+        // Scroll to message
+        messageDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+</script>
+</body>
+</html>

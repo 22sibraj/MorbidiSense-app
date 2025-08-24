@@ -9,6 +9,10 @@ app = Flask(__name__, static_folder='front-end', static_url_path='/front-end')
 def index():
     return send_from_directory('front-end/pages', 'home.html')
 
+@app.route('/register')
+def register():
+    return send_from_directory('front-end/pages', 'register.html')
+
 @app.route('/explanation')
 def explanation():
     return send_from_directory('front-end/pages', 'explanation.html')
