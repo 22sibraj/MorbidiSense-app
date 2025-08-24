@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MorbidiSense App - Predict Risk</title>
     <link rel="stylesheet" href="../style/core.css">
     <!-- Load navigation system -->
+    <script src="../scripts/loadTemplates.js" defer></script>
     <script src="../scripts/navigation.js" defer></script>
 </head>
 <body>
@@ -30,8 +31,8 @@
         </div>
     </div>
 
-    <div id="loader">
-        <img src="../image/loader.gif" alt="Loading...">
+    <div id="loader" class="loader-container" style="display: none;">
+        <div class="loader"></div>
     </div>
     <footer class="footer">
         <div class="container">
