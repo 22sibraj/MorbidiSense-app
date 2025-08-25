@@ -4,118 +4,423 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="../image/favicon.ico">
+    <link rel="stylesheet" href="../style/core.css">
     <link rel="stylesheet" href="../style/register.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <title>Register - MorbidiSense</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="../scripts/navigation.js" defer></script>
+    <script src="../scripts/loadTemplates.js" defer></script>
+    <title>Create Your Account - MorbidiSense</title>
 </head>
-<body>
-    <div class="register-container">
-        <div class="register-box">
-            <form id="registerForm" class="register-form" onsubmit="event.preventDefault(); register();">
-                <div id="message" class="message"></div>
-                <div class="logo">
-                    <img src="../image/logo-img.jpg" alt="MorbidiSense Logo">
-                    <h1>Join MorbidiSense Today</h1>
-                    <p>Sign up to unlock AI-powered health insights, monitor your well-being, and take control of your medical journey — all in one smart platform.</p>
-                </div>
-                <div class="form-group">
-                    <label for="fullName">Full Name <span class="required">*</span></label>
-                    <div class="input-group">
-                        <i class="fas fa-user"></i>
-                        <input type="text" id="fullName" name="fullName" placeholder="John Doe" required>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="username">Username <span class="required">*</span></label>
-                    <div class="input-group">
-                        <i class="fas fa-at"></i>
-                        <input type="text" id="username" name="username" placeholder="john_doe" required>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Email <span class="required">*</span></label>
-                    <div class="input-group">
-                        <i class="fas fa-envelope"></i>
-                        <input type="email" id="email" name="email" placeholder="john@example.com" required>
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group half">
-                        <label for="password">Password <span class="required">*</span></label>
-                        <div class="input-group">
-                            <i class="fas fa-lock"></i>
-                            <input type="password" id="password" name="password" placeholder="********" required>
-                            <i class="fas fa-eye toggle-password"></i>
-                        </div>
-                    </div>
-                    <div class="form-group half">
-                        <label for="confirmPassword">Confirm Password <span class="required">*</span></label>
-                        <div class="input-group">
-                            <i class="fas fa-lock"></i>
-                            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="********" required>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group half">
-                        <label for="phone">Phone Number</label>
-                        <div class="input-group">
-                            <i class="fas fa-phone"></i>
-                            <input type="tel" id="phone" name="phone" placeholder="+91 9876543210">
-                        </div>
-                    </div>
-                    <div class="form-group half">
-                        <label for="dob">Date of Birth</label>
-                        <div class="input-group">
-                            <i class="fas fa-calendar"></i>
-                            <input type="date" id="dob" name="dob">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label>Gender</label>
-                    <div class="radio-group">
-                        <label class="radio-container">
-                            <input type="radio" name="gender" value="male">
-                            <span class="radio-checkmark"></span>
-                            Male
-                        </label>
-                        <label class="radio-container">
-                            <input type="radio" name="gender" value="female">
-                            <span class="radio-checkmark"></span>
-                            Female
-                        </label>
-                        <label class="radio-container">
-                            <input type="radio" name="gender" value="other">
-                            <span class="radio-checkmark"></span>
-                            Other
-                        </label>
-                    </div>
-                </div>
-
-                <div class="form-actions">
-                    <button type="submit" class="btn-register">
-                        <span>Create Account</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </button>
-                    
-                    <div class="login-link">
-                        Already have an account? <a href="login.html">Login here</a>
-                    </div>
-                </div>
-            </form>
+<body class="auth-page">
+    <!-- Header will be loaded here -->
+    <div id="header-placeholder"></div>
+    
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="wave" style="--i:1;"></div>
+        <div class="wave" style="--i:2;"></div>
+        <div class="wave" style="--i:3;"></div>
+        <div class="wave" style="--i:4;"></div>
     </div>
-</div>
 
-<!-- Loader -->
-<div id="loader" class="loader">
-    <img src="../image/loader.gif" alt="Loading...">
-</div>
+    <main class="register-container">
+        <div class="register-card">
+            <!-- Left Column - Branding -->
+            <div class="register-branding">
+                <div class="branding-content">
+                    <div class="logo-container">
+                        <img src="../image/logo-white.png" alt="MorbidiSense" class="brand-logo">
+                        <span class="logo-text">MorbidiSense</span>
+                    </div>
+                    <h1>Your Health,<br>Our <span class="gradient-text">Priority</span></h1>
+                    <p class="tagline">Join our community of health-conscious individuals and take control of your well-being with AI-powered insights.</p>
+                    
+                    <div class="features">
+                        <div class="feature-item">
+                            <div class="feature-icon pulse">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>AI-Powered Analysis</h4>
+                                <p>Get instant health insights powered by advanced machine learning algorithms</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon pulse" style="animation-delay: 0.2s">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Track Your Progress</h4>
+                                <p>Monitor your health metrics and visualize improvements over time</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon pulse" style="animation-delay: 0.4s">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Secure & Private</h4>
+                                <p>Your health data is encrypted and protected with enterprise-grade security</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <i class="fas fa-quote-left"></i>
+                            <p>MorbidiSense has transformed how I manage my health. The insights are incredibly accurate!</p>
+                            <div class="testimonial-author">
+                                <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah J.">
+                                <div>
+                                    <h5>Sarah J.</h5>
+                                    <span>User since 2023</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="branding-overlay"></div>
+                <div class="floating-shapes">
+                    <div class="shape shape-1"></div>
+                    <div class="shape shape-2"></div>
+                    <div class="shape shape-3"></div>
+                    <div class="shape shape-4"></div>
+                </div>
+            </div>
+            
+            <!-- Right Column - Registration Form -->
+            <div class="register-form-container">
+                <div class="form-wrapper">
+                    <div class="form-header">
+                        <h2>Create Your Account</h2>
+                        <p>Start your journey to better health</p>
+                    </div>
+                    
+                    <form id="registerForm" class="register-form" onsubmit="event.preventDefault(); register();">
+                        <div id="message" class="message"></div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fullName">Full Name <span class="required">*</span></label>
+                                <div class="input-group">
+                                    <i class="fas fa-user"></i>
+                                    <input type="text" id="fullName" name="fullName" placeholder="John Doe" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="username">Username <span class="required">*</span></label>
+                                <div class="input-group">
+                                    <i class="fas fa-at"></i>
+                                    <input type="text" id="username" name="username" placeholder="john_doe" required>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address <span class="required">*</span></label>
+                            <div class="input-group">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="password">Password <span class="required">*</span></label>
+                                <div class="input-group">
+                                    <i class="fas fa-lock"></i>
+                                    <input type="password" id="password" name="password" placeholder="••••••••" required>
+                                    <i class="fas fa-eye toggle-password"></i>
+                                </div>
+                                <div class="password-strength">
+                                    <div class="strength-meter">
+                                        <span class="strength-section"></span>
+                                        <span class="strength-section"></span>
+                                        <span class="strength-section"></span>
+                                        <span class="strength-section"></span>
+                                    </div>
+                                    <small class="strength-text"></small>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="confirmPassword">Confirm Password <span class="required">*</span></label>
+                                <div class="input-group">
+                                    <i class="fas fa-lock"></i>
+                                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="••••••••" required>
+                                    <i class="fas fa-eye toggle-password"></i>
+                                </div>
+                                <div class="password-match">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Passwords match</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group terms-checkbox">
+                            <label class="custom-checkbox">
+                                <input type="checkbox" id="terms" name="terms" required>
+                                <span class="checkmark"></span>
+                                I agree to the <a href="#" class="link">Terms of Service</a> and <a href="#" class="link">Privacy Policy</a>
+                            </label>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary btn-block">
+                                <span>Create Account</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                            
+                            <div class="divider">
+                                <span>or</span>
+                            </div>
+                            
+                            <div class="social-login">
+                                <button type="button" class="btn-social google">
+                                    <img src="https://www.google.com/favicon.ico" alt="Google">
+                                    <span>Continue with Google</span>
+                                </button>
+                                <button type="button" class="btn-social facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </button>
+                            </div>
+                            
+                            <p class="login-link">
+                                Already have an account? <a href="login.html" class="link">Sign in</a>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="terms">
+                    <p>By signing up, you agree to our <a href="#" class="link">Terms of Service</a> and <a href="#" class="link">Privacy Policy</a></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer will be loaded here -->
+    <div id="footer-placeholder"></div>
+    
+    <!-- Loader -->
+    <div id="loader" class="loader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <p>Creating your account...</p>
+        </div>
+    </div>
+
+    <script>
+        // Toggle password visibility
+        document.querySelectorAll('.toggle-password').forEach(icon => {
+            icon.addEventListener('click', function() {
+                const input = this.previousElementSibling;
+                const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
+                input.setAttribute('type', type);
+                this.classList.toggle('fa-eye');
+                this.classList.toggle('fa-eye-slash');
+            });
+        });
+
+        // Handle form submission
+        async function register() {
+            const form = document.getElementById('registerForm');
+            const formData = new FormData(form);
+            const loader = document.getElementById('loader');
+            const messageDiv = document.getElementById('message');
+            
+            // Basic client-side validation
+            const password = formData.get('password');
+            const confirmPassword = formData.get('confirmPassword');
+            
+            if (password !== confirmPassword) {
+                showMessage('Passwords do not match', 'error');
+                return;
+            }
+            
+            try {
+                // Show loader
+                loader.style.display = 'flex';
+                
+                // Convert FormData to JSON
+                const jsonData = {};
+                formData.forEach((value, key) => {
+                    jsonData[key] = value;
+                });
+                
+                // Send registration request
+                const response = await fetch('/api/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(jsonData)
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    showMessage('Registration successful! Redirecting to login...', 'success');
+                    // Redirect to login after 2 seconds
+                    setTimeout(() => {
+                        window.location.href = 'login.html';
+                    }, 2000);
+                } else {
+                    showMessage(data.message || 'Registration failed. Please try again.', 'error');
+                }
+            } catch (error) {
+                console.error('Registration error:', error);
+                showMessage('An error occurred. Please try again later.', 'error');
+            } finally {
+                // Hide loader
+                loader.style.display = 'none';
+            }
+        }
+
+        function showMessage(message, type) {
+            const messageDiv = document.getElementById('message');
+            messageDiv.textContent = message;
+            messageDiv.className = 'message ' + type;
+            messageDiv.style.display = 'block';
+            
+            // Auto-hide after 5 seconds
+            setTimeout(() => {
+                messageDiv.style.display = 'none';
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
+                                <div class="input-group">
+                                    <i class="fas fa-user"></i>
+                                    <input type="text" id="fullName" name="fullName" placeholder="John Doe" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="username">Username <span class="required">*</span></label>
+                                <div class="input-group">
+                                    <i class="fas fa-at"></i>
+                                    <input type="text" id="username" name="username" placeholder="john_doe" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email <span class="required">*</span></label>
+                            <div class="input-group">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                            </div>
+                        </div>
+
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="password">Password <span class="required">*</span></label>
+                                <div class="input-group">
+                                    <i class="fas fa-lock"></i>
+                                    <input type="password" id="password" name="password" placeholder="********" required>
+                                    <i class="fas fa-eye toggle-password"></i>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmPassword">Confirm Password <span class="required">*</span></label>
+                                <div class="input-group">
+                                    <i class="fas fa-lock"></i>
+                                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="********" required>
+                                    <i class="fas fa-eye toggle-password"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <div class="input-group">
+                                    <i class="fas fa-phone"></i>
+                                    <input type="tel" id="phone" name="phone" placeholder="+91 9876543210">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="dob">Date of Birth</label>
+                                <div class="input-group">
+                                    <i class="fas fa-calendar"></i>
+                                    <input type="date" id="dob" name="dob" class="date-input">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Gender</label>
+                            <div class="radio-group">
+                                <label class="radio-container">
+                                    <input type="radio" name="gender" value="male">
+                                    <span class="radio-checkmark"></span>
+                                    <span class="radio-label">Male</span>
+                                </label>
+                                <label class="radio-container">
+                                    <input type="radio" name="gender" value="female">
+                                    <span class="radio-checkmark"></span>
+                                    <span class="radio-label">Female</span>
+                                </label>
+                                <label class="radio-container">
+                                    <input type="radio" name="gender" value="other">
+                                    <span class="radio-checkmark"></span>
+                                    <span class="radio-label">Other</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn-gradient">
+                                <span>Create Account</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                            
+                            <div class="divider">
+                                <span>or</span>
+                            </div>
+                            
+                            <div class="social-login">
+                                <button type="button" class="btn-social google">
+                                    <img src="../image/google-icon.png" alt="Google">
+                                    <span>Continue with Google</span>
+                                </button>
+                                <button type="button" class="btn-social facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </button>
+                            </div>
+                            
+                            <p class="login-link">
+                                Already have an account? <a href="login.html">Sign In</a>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="terms">
+                <p>By signing up, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer will be loaded here -->
+    <div id="footer-placeholder"></div>
+    
+    <!-- Loader -->
+    <div id="loader" class="loader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <p>Creating your account...</p>
+        </div>
+    </div>
 
 <script>
     // Toggle password visibility
