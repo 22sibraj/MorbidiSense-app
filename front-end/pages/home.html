@@ -199,92 +199,14 @@
     </main>
 
     <!-- Footer Section -->
-    <footer class="footer" role="contentinfo">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section about">
-                    <div class="footer-logo">
-                        <img src="../image/logo.png" alt="MorbidiSense Logo" class="footer-logo-img">
-                        <h2>MorbidiSense</h2>
-                    </div>
-                    <p class="footer-about-text">Empowering your health journey with AI-powered insights and personalized care. Our mission is to make healthcare more accessible and understandable for everyone.</p>
-                    <div class="contact-info">
-                        <p><i class="fas fa-envelope"></i> support@morbidisense.com</p>
-                        <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
-                    </div>
-                </div>
+    <div id="footer-placeholder"></div>
 
-                <div class="footer-section links">
-                    <h3 class="footer-heading">Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="/about" class="footer-link"><i class="fas fa-chevron-right"></i> About Us</a></li>
-                        <li><a href="/services" class="footer-link"><i class="fas fa-chevron-right"></i> Our Services</a></li>
-                        <li><a href="/predict-risk" class="footer-link"><i class="fas fa-chevron-right"></i> Risk Assessment</a></li>
-                        <li><a href="/health-insights" class="footer-link"><i class="fas fa-chevron-right"></i> Health Insights</a></li>
-                        <li><a href="/blog" class="footer-link"><i class="fas fa-chevron-right"></i> Blog</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section support">
-                    <h3 class="footer-heading">Support</h3>
-                    <ul class="footer-links">
-                        <li><a href="/faq" class="footer-link"><i class="fas fa-question-circle"></i> FAQ</a></li>
-                        <li><a href="/contact" class="footer-link"><i class="fas fa-headset"></i> Contact Support</a></li>
-                        <li><a href="/privacy" class="footer-link"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
-                        <li><a href="/terms" class="footer-link"><i class="fas fa-file-contract"></i> Terms of Service</a></li>
-                        <li><a href="/cookies" class="footer-link"><i class="fas fa-cookie-bite"></i> Cookie Policy</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section newsletter">
-                    <h3 class="footer-heading">Newsletter</h3>
-                    <p>Subscribe to our newsletter for health tips and updates.</p>
-                    <form class="newsletter-form" id="newsletterForm">
-                        <div class="form-group">
-                            <input type="email" class="form-input" placeholder="Your email address" required>
-                            <button type="submit" class="btn-subscribe">
-                                <i class="fas fa-paper-plane"></i>
-                            </button>
-                        </div>
-                    </form>
-                    <div class="social-links">
-                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="social-link">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class="social-link">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-link">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social-link">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="social-link">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <div class="footer-bottom-content">
-                    <p class="copyright">&copy; 2025 MorbidiSense. All rights reserved.</p>
-                    <div class="legal-links">
-                        <a href="/privacy" class="legal-link">Privacy Policy</a>
-                        <span class="divider">|</span>
-                        <a href="/terms" class="legal-link">Terms of Service</a>
-                        <span class="divider">|</span>
-                        <a href="/cookies" class="legal-link">Cookie Policy</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
+    <!-- Include Footer Script -->
+    <script src="../scripts/footer.js"></script>
+    
     <script>
-        // Dynamic greeting based on time of day
         document.addEventListener('DOMContentLoaded', function() {
+            // Dynamic greeting based on time of day
             const hour = new Date().getHours();
             let greeting = '';
             
