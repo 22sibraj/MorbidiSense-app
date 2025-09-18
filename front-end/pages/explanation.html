@@ -1,45 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MorbidiSense - Explanation</title>
+    <title>MorbidiSense App - Explanation</title>
     <link rel="stylesheet" href="../style/core.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="../scripts/navigation.js" defer></script>
-    <script src="../scripts/loadTemplates.js" defer></script>
 </head>
-<body class="dashboard">
-    <!-- Header will be loaded here -->
-    <div id="header-placeholder"></div>
-
-    <!-- Sidebar will be loaded here -->
-    <div id="sidebar-placeholder"></div>
-
-    <!-- Page transition overlay -->
-    <div id="page-transition" class="page-transition"></div>
-
-    <main class="main-content">
-        <div class="container">
-            <div class="wrapper">
-                <!-- Page content will go here -->
-                <h1>Explanation</h1>
-                <p>This page will contain explainable AI insights and visualizations.</p>
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="../image/logo-img.jpg" alt="MorbidiSense Logo">
+            <span class="text">MorbidiSense</span>
+        </div>
+        <div class="top-right">
+            <div class="group">
+                <i class="fa fa-user fa-fw"></i>
+                <span id="username">sibraj</span>
+                <div class="vertical-line"></div>
+                <i class="fa fa-bell fa-fw"></i>
+                <span id="notifications">0</span>
+                <a href="#" onclick="logout()"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
             </div>
         </div>
-    </main>
+    </div>
 
-    <!-- Footer will be loaded here -->
-    <div id="footer-placeholder"></div>
+
+    <div class="wrapper">
+        <div class="sidebar">
+            <ul class="menu">
+                <li class="item">
+                    <a href="home.html"><i class="fa fa-home fa-fw"></i> Home</a>
+                    <label class="description">Dashboard Overview</label>
+                </li>
+                <li class="item">
+                    <a href="predict-risk.html"><i class="fa fa-stethoscope fa-fw"></i> Predict Risk</a>
+                    <label class="description">Run Health Risk Assessment</label>
+                </li>
+                <li class="item active">
+                    <a href="explanation.html"><i class="fa fa-brain fa-fw"></i> Explanation</a>
+                    <label class="description">View Explainable Insights (SHAP)</label>
+                </li>
+                <li class="item">
+                    <a href="report.html"><i class="fa fa-chart-line fa-fw"></i> Reports</a>
+                    <label class="description">Download Prediction Reports</label>
+                </li>
+                <li class="item">
+                    <a href="health-insights.html"><i class="fa fa-notes-medical fa-fw"></i> Health Insights</a>
+                    <label class="description">Preventive Health Tips</label>
+                </li>
+                <li class="item">
+                    <a href="user-profile.html"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                    <label class="description">Manage Your Profile</label>
+                </li>
+                <li class="item">
+                    <a href="settings.html"><i class="fa fa-cog fa-fw"></i> Settings</a>
+                    <label class="description">App Preferences</label>
+                </li>
+                <li class="item">
+                    <a href="logout.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    <label class="description">Sign Out from MorbidiSense</label>
+                </li>
+            </ul>
+        </div>
+    </div>
     
+   
 
 
 
-    
-    <!-- Loader -->
     <div id="loader">
         <img src="../image/loader.gif" alt="Loading...">
     </div>
+    <footer class="footer">
+        <div class="container">
+            <span class="copyright">&#169; 2025</span>
+            <span class="text">MorbidiSense</span>
+        </div>
+    </footer>
     <script>
         // Show loader when page is loading
         document.addEventListener('DOMContentLoaded', function() {

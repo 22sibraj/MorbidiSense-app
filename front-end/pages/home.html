@@ -1,232 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MorbidiSense - Health Dashboard</title>
-    <link rel="stylesheet" href="../style/core.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="../scripts/navigation.js" defer></script>
-    <script src="../scripts/loadTemplates.js" defer></script>
+    <title>MorbidiSense App - Home</title>
+    <link rel="stylesheet" href="/front-end/style/core.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="dashboard">
-    <!-- Header will be loaded here -->
-    <div id="header-placeholder"></div>
-
-    <!-- Sidebar will be loaded here -->
-    <div id="sidebar-placeholder"></div>
-
-    <!-- Page transition overlay -->
-    <div id="page-transition" class="page-transition">
-        <div class="loader"></div>
-    </div>
-
-    <div class="page-wrapper">
-        <main class="main-content">
-        <!-- Hero/Welcome Section -->
-        <section class="hero-section">
-            <div class="welcome-container">
-                <h1>Welcome back, <span id="username">Alex</span> 👋</h1>
-                <p class="tagline">Track your health, predict risks, and stay ahead with AI-powered insights.</p>
-                <div class="cta-buttons">
-                    <a href="predict-risk.html" class="btn btn-primary">
-                        <i class="fas fa-heartbeat"></i> Start Risk Test
-                    </a>
-                    <a href="report.html" class="btn btn-outline">
-                        <i class="fas fa-chart-line"></i> View Reports
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Quick Health Overview -->
-        <section class="quick-stats">
-            <h2>Your Health at a Glance</h2>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-chart-pie"></i>
-                    </div>
-                    <div class="stat-details">
-                        <h3>Last Risk Assessment</h3>
-                        <p class="stat-value">Moderate Risk</p>
-                        <p class="stat-meta">Updated: 2 days ago</p>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-notes-medical"></i>
-                    </div>
-                    <div class="stat-details">
-                        <h3>Recent Symptoms</h3>
-                        <p class="stat-value">3 Reported</p>
-                        <p class="stat-meta">Headache, Fatigue, Dizziness</p>
-                    </div>
-                </div>
-                <div class="stat-card alert">
-                    <div class="stat-icon">
-                        <i class="fas fa-exclamation-triangle"></i>
-                    </div>
-                    <div class="stat-details">
-                        <h3>Alerts</h3>
-                        <p class="stat-value">1 New</p>
-                        <p class="stat-meta">High BP detected in last test</p>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-calendar-check"></i>
-                    </div>
-                    <div class="stat-details">
-                        <h3>Upcoming</h3>
-                        <p class="stat-value">Next Check-up</p>
-                        <p class="stat-meta">In 14 days</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Navigation Shortcuts -->
-        <section class="quick-actions">
-            <h2>Quick Actions</h2>
-            <div class="actions-grid">
-                <a href="easy-test.html" class="action-card">
-                    <div class="action-icon">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <h3>Easy Test</h3>
-                    <p>Quick health assessment</p>
-                </a>
-                <a href="advance-test.html" class="action-card">
-                    <div class="action-icon">
-                        <i class="fas fa-clipboard-check"></i>
-                    </div>
-                    <h3>Advanced Test</h3>
-                    <p>Detailed health analysis</p>
-                </a>
-                <a href="report.html" class="action-card">
-                    <div class="action-icon">
-                        <i class="fas fa-file-medical"></i>
-                    </div>
-                    <h3>Reports</h3>
-                    <p>View your health history</p>
-                </a>
-                <a href="health-insights.html" class="action-card">
-                    <div class="action-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Health Insights</h3>
-                    <p>Personalized analytics</p>
-                </a>
-            </div>
-        </section>
-
-        <!-- Health Tips & Recent Activity -->
-        <div class="dashboard-layout">
-            <!-- Health Tips -->
-            <section class="health-tips">
-                <div class="section-header">
-                    <h2><i class="fas fa-lightbulb"></i> Health Tips</h2>
-                </div>
-                <div class="tip-card">
-                    <div class="tip-icon">
-                        <i class="fas fa-apple-alt"></i>
-                    </div>
-                    <div class="tip-content">
-                        <h3>Diet Suggestion</h3>
-                        <p>Based on your last test, try reducing sugar intake this week. Consider swapping sugary snacks for fresh fruits.</p>
-                    </div>
-                </div>
-                <div class="tip-card">
-                    <div class="tip-icon">
-                        <i class="fas fa-walking"></i>
-                    </div>
-                    <div class="tip-content">
-                        <h3>Activity Reminder</h3>
-                        <p>You've been sitting for 2 hours. Take a 5-minute walk to improve circulation.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Recent Activity -->
-            <section class="recent-activity">
-                <div class="section-header">
-                    <h2><i class="fas fa-history"></i> Recent Activity</h2>
-                </div>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <p class="timeline-date">Today, 10:30 AM</p>
-                            <p>You completed an Advanced Test</p>
-                            <span class="timeline-badge">New</span>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <p class="timeline-date">Yesterday, 2:15 PM</p>
-                            <p>Added new symptoms: Headache, Nausea</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <p class="timeline-date">Aug 22, 2025</p>
-                            <p>Generated report downloaded</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="../image/logo-img.jpg" alt="MorbidiSense Logo">
+            <span class="text">MorbidiSense</span>
         </div>
-
-        <!-- Progress Tracker -->
-        <section class="progress-tracker">
-            <div class="progress-header">
-                <h2><i class="fas fa-trophy"></i> Your Health Journey</h2>
-                <span class="streak">3-day streak! 🔥</span>
+        <div class="top-right">
+            <div class="group">
+                <i class="fa fa-user fa-fw"></i>
+                <span id="username">sibraj</span>
+                <div class="vertical-line"></div>
+                <i class="fa fa-bell fa-fw"></i>
+                <span id="notifications">0</span>
+                <a href="#" onclick="logout()"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
             </div>
-            <div class="progress-container">
-                <div class="progress-labels">
-                    <span>Weekly Goal: 3/5 assessments</span>
-                    <span>60%</span>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress" style="width: 60%;"></div>
-                </div>
-                <p class="motivation">You're on track! Complete 2 more assessments this week to reach your goal. 🎯</p>
-            </div>
-        </section>
-        </main>
+        </div>
     </div>
 
-    <!-- Footer Section -->
-    <div id="footer-placeholder"></div>
 
-    <!-- Include Footer Script -->
-    <script src="../scripts/footer.js"></script>
-    
-    <!-- Include Scripts at the end of body -->
+    <div class="wrapper">
+        <div class="sidebar">
+            <ul class="menu">
+                <li class="item active">
+                    <a href="home.html"><i class="fa fa-home fa-fw"></i> Home</a>
+                    <label class="description">Dashboard Overview</label>
+                </li>
+                <li class="item">
+                    <a href="predict-risk.html"><i class="fa fa-stethoscope fa-fw"></i> Predict Risk</a>
+                    <label class="description">Run Health Risk Assessment</label>
+                </li>
+                <li class="item">
+                    <a href="explanation.html"><i class="fa fa-brain fa-fw"></i> Explanation</a>
+                    <label class="description">View Explainable Insights (SHAP)</label>
+                </li>
+                <li class="item">
+                    <a href="report.html"><i class="fa fa-chart-line fa-fw"></i> Reports</a>
+                    <label class="description">Download Prediction Reports</label>
+                </li>
+                <li class="item">
+                    <a href="health-insights.html"><i class="fa fa-notes-medical fa-fw"></i> Health Insights</a>
+                    <label class="description">Preventive Health Tips</label>
+                </li>
+                <li class="item">
+                    <a href="user-profile.html"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                    <label class="description">Manage Your Profile</label>
+                </li>
+                <li class="item">
+                    <a href="settings.html"><i class="fa fa-cog fa-fw"></i> Settings</a>
+                    <label class="description">App Preferences</label>
+                </li>
+                <li class="item">
+                    <a href="logout.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    <label class="description">Sign Out from MorbidiSense</label>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+    <div id="loader">
+        <img src="../image/loader.gif" alt="Loading...">
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <span class="copyright">&#169; 2025</span>
+            <span class="text">MorbidiSense</span>
+        </div>
+    </footer>
     <script>
+        // Show loader when page is loading
         document.addEventListener('DOMContentLoaded', function() {
-            // Dynamic greeting based on time of day
-            const hour = new Date().getHours();
-            let greeting = '';
+            const loader = document.getElementById('loader');
+            if (loader) loader.classList.add('show');
             
-            if (hour < 12) greeting = 'Good morning';
-            else if (hour < 18) greeting = 'Good afternoon';
-            else greeting = 'Good evening';
-            
-            const username = document.getElementById('username');
-            if (username) {
-                username.textContent = greeting + ', ' + (localStorage.getItem('username') || 'User');
-            }
-            
-            // Simulate loading data
+            // Simulate loading (remove this in production)
             setTimeout(() => {
-                const loader = document.getElementById('page-transition');
-                if (loader) loader.style.display = 'none';
-            }, 800);
+                if (loader) loader.classList.remove('show');
+            }, 1000);
         });
     </script>
 </body>
